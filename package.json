@@ -1,5 +1,5 @@
 {
-  "name": "red-contrib-mrubyc-rboard",
+  "name": "node-red-contrib-mrubyc-rboard",
   "node-red" : {
     "nodes": {
       "Start_Node": "mrc_start.js"
