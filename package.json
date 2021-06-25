@@ -1,5 +1,10 @@
 {
   "name": "red-contrib-mrubyc-rboard",
+  "node-red" : {
+    "nodes": {
+      "Start_Node": "mrc_start.js"
+    }
+  },
   "version": "1.0.0",
   "description": "Node-RED nodes for mruby/c Rboard ",
   "main": "mrc_start.js",
