@@ -12,7 +12,7 @@ module.exports = function(RED) {
 		if (addminNode != null) {
 			try {
 				addminNode.receive();
-				node.send({payload:"hello world"});
+				node.send({payload:1});
 				res.sendStatus(200);
 			} catch(err) {
 				res.sendStatus(500);
