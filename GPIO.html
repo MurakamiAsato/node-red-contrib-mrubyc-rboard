@@ -1,0 +1,88 @@
+<script type="text/javascript">
+    RED.nodes.registerType('GPIO', {
+        category: 'mruby_Rboad_Nodes',
+        color: '#A9E2F3',
+        defaults: {
+            name: { value: "" },
+            targetPort: {value: ""},
+            GPIOType:{value: "read"},
+            ReadType:{value: "digital read"},
+            WriteType:{value: "digital write"},
+            
+
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "file.png",
+        label: function () {
+            return this.name||"GPIO";
+        },
+        
+        oneditprepare: function(){
+
+            $("#node-input-GPIOType").on("change",function() {
+                if (this.value === "read") {
+                    $("#Read-details").show();
+                    $("#Write-details").hide();
+                } else if (this.value === "write") {
+                    $("#Read-details").hide();
+                    $("#Write-details").show();
+                }
+            }).trigger("change");
+        }
+    });
+</script>
+
+
+<script type="text/html" data-template-name="GPIO">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> 名前</label>
+        <input type="text" id="node-input-name" placeholder="名前">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-GPIOType"><i class="icon-tag"></i>GPIOのモード </label>
+        <select id="node-input-GPIOType">
+            <option value="read">Read mode</option>
+            <option value="write">Write mode</option>
+        </select>
+    </div>
+
+    <div id="Write-details">
+        <div class="form-row">
+            <label for="node-input-WriteType"><i class="icon-tag"></i> 出力形式</label>
+            <select id="node-input-WriteType">
+                <option value="digital write">Digital Write</option>
+                <option value="PWM">PWM</option>
+            </select>        
+        </div>
+
+        <div class="form-row">
+            <label for="node-input-targetPort"><i class="icon-tag"></i> 出力ポート</label>
+            <input type="text" id="node-input-targetPort"  placeholder="ポート番号を入力">
+        </div>
+    </div>
+
+    <div id="Read-details">
+        <div class="form-row">
+            <label for="node-input-ReadType"><i class="icon-tag"></i> 入力形式</label>
+            <select id="node-input-ReadType">
+                <option value="digital read">Digital Read</option>
+                <option value="ADC">Analog Read</option>
+            </select>        
+        </div>
+
+
+        <div class="form-row">
+            <label for="node-input-targetPort"><i class="icon-tag"></i> 入力ポート</label>
+            <input type="text" id="node-input-targetPort"  placeholder="ポート番号を入力">
+        </div>
+    </div>
+
+
+</script>
+
+ 
+<script type="text/x-red" data-help-name="GPIO">
+    <p>GPIOを制御するノードです</p>
+</script>
