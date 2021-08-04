@@ -3,7 +3,8 @@
   "node-red" : {
     "nodes": {
       "Button": "Button.js",
-      "LED":"LED.js"
+      "LED":"LED.js",
+      "GPIO":"GPIO.js"
     }
   },
   "version": "1.0.0",
