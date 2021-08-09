@@ -1,0 +1,84 @@
+<script type="text/javascript">
+    RED.nodes.registerType('GPIO-Write-1', {
+        category: 'mruby_Rboad_Nodes',
+        color: '#A9E2F3',
+        defaults: {
+            name: { value: "" },
+            WriteType:{value: "digital_write"}, 
+            GPIOType:{value: "write"},            
+            targetPort_digital: {value: ""},
+            targetPort_PWM: {value: ""}
+
+        },
+        inputs: 1,
+        outputs: 0,
+        icon: "file.png",
+        label: function () {
+            return this.name||"GPIO-Write-1";
+        },
+        
+        oneditprepare: function(){
+
+            $("#node-input-WriteType").on("change",function() {
+                if (this.value === "digital_write") {
+                    $("#WriteType-digital").show();
+                    $("#WriteType-PWM").hide();
+                } else if (this.value === "PWM") {
+                    $("#WriteType-digital").hide();
+                    $("#WriteType-PWM").show();
+                }
+            }).trigger("change");
+        }
+    });
+</script>
+
+
+<script type="text/html" data-template-name="GPIO-Write-1">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> 名前</label>
+        <input type="text" id="node-input-name" placeholder="名前">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-WriteType"><i class="icon-tag"></i> 出力形式</label>
+        <select id="node-input-WriteType">
+            <option value="digital_write">Digital Write</option>
+            <option value="PWM">PWM</option>
+        </select>        
+    </div>
+
+    <div id="WriteType-digital">
+        <div class="form-row">
+            <label for="node-input-targetPort_digital"><i class="icon-tag"></i> 出力Pin</label>
+            <input type="text" id="node-input-targetPort_digital"  placeholder="Pin番号を入力(1～20)">
+        </div>
+    </div>
+
+    <div id="WriteType-PWM">
+        <div class="form-row">
+            <label for="node-input-targetPort_PWM"><i class="icon-tag"></i> 出力Pin</label>
+            <select id="node-input-targetPort_PWM">
+                <option value="1">PWM 1 (Pin12)</option>
+                <option value="2">PWM 2 (Pin16)</option>
+                <option value="3">PWM 3 ()</option>
+                <option value="4">PWM 4 (Pin18)</option>
+                <option value="5">PWM 5 (Pin2)</option>
+            </select>   
+        </div>
+        <small class="form-text text-muted">
+            注意：使用するPWMのチャンネルとPin番号は一致していません.以下のように設定されています.
+            ・PWM1 (Pin12)
+            ・PWM2 (Pin16)
+            ・PWM3 (Pin)
+            ・PWM4 (Pin18)
+            ・PWM5 (Pin2)
+        </small>
+    </div>
+
+
+</script>
+
+ 
+<script type="text/x-red" data-help-name="GPIO-Write-1">
+    <p>GPIOを制御するノードです</p>
+</script>

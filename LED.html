@@ -4,6 +4,7 @@
         color: '#A9E2F3',
         defaults: {
             name: { value: "" },
+            HOWuesLED: {value: "using_onBoaedLED"},
             targetPort: {value: ""},
             onBoardLED: {value: "0"}
         },
@@ -12,22 +13,44 @@
         icon: "file.png",
         label: function () {
             return this.name||"LED";
+        },
+
+        oneditprepare: function(){
+
+            $("#node-input-HOWuesLED").on("change",function() {
+                if (this.value === "using_LED_ON" || this.value === "using_LED_OFF") {
+                    $("#LED-conected-Pin").show();
+                    $("#LED-onBoard").hide();
+                } else if (this.value === "using_onBoaedLED") {
+                    $("#LED-conected-Pin").hide();
+                    $("#LED-onBoard").show();
+                }
+            }).trigger("change");
         }
     });
 </script>
  
-<script type="text/x-red" data-template-name="LED">
+<script type="text/html" data-template-name="LED">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> 名前</label>
         <input type="text" id="node-input-name" placeholder="名前">
     </div>
-    
-    <div class="form-row">
-        <label for="node-input-targetPort"><i class="icon-tag"></i> 対象ポート番号</label>
-        <input type="text" id="node-input-targetPort"  placeholder="LEDと接続しているポート番号を入力">
-    </div>
 
     <div class="form-row">
+        <label for="node-input-HOWuesLED"><i class="icon-tag"></i>LEDノードの対象 </label>
+        <select id="node-input-HOWuesLED">
+            <option value="using_onBoaedLED">オンボードLED</option>
+            <option value="using_LED_ON">Pinと接続しているLEDの点灯</option>
+            <option value="using_LED_OFF">Pinと接続しているLEDの消灯</option>
+        </select>
+    </div>
+    
+    <div id="LED-conected-Pin" class="form-row">
+        <label for="node-input-targetPort"><i class="icon-tag"></i> Pin番号</label>
+        <input type="text" id="node-input-targetPort"  placeholder="LEDと接続しているPin番号を入力">
+    </div>
+
+    <div id="LED-onBoard" class="form-row">
         <label for="node-input-onBoardLED"><i class="icon-tag"></i>オンボードLED </label>
         <select id="node-input-onBoardLED">
             <option value="0">使用しない</option>

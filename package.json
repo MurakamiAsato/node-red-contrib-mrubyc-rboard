@@ -4,7 +4,11 @@
     "nodes": {
       "Button": "Button.js",
       "LED":"LED.js",
-      "GPIO":"GPIO.js"
+      "GPIO":"GPIO.js",
+      "GPIO-Read-1":"GPIO-Read-1.js",
+      "GPIO-Read-2":"GPIO-Read-2.js",
+      "GPIO-Write-1":"GPIO-Write-1.js",
+      "GPIO-Write-2":"GPIO-Write-2.js"
     }
   },
   "version": "1.0.0",
