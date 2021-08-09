@@ -7,11 +7,12 @@
             WriteType:{value: "digital_write"}, 
             GPIOType:{value: "write"},            
             targetPort_digital: {value: ""},
+            targetPort_mode: {value: "0"},
             targetPort_PWM: {value: ""}
 
         },
         inputs: 1,
-        outputs: 0,
+        outputs: 1,
         icon: "file.png",
         label: function () {
             return this.name||"GPIO-Write-2";
@@ -52,6 +53,16 @@
             <label for="node-input-targetPort_digital"><i class="icon-tag"></i> 出力Pin</label>
             <input type="text" id="node-input-targetPort_digital"  placeholder="Pin番号を入力(1～20)">
         </div>
+        <div class="form-row">
+            <label for="node-input-targetPort_digital"><i class="icon-tag"></i> 出力Pin</label>
+            <input type="text" id="node-input-targetPort_digital"  placeholder="Pin番号を入力(1～20)">
+            <label for="node-input-targetPort_mode"><i class="icon-tag"></i> 出力Pinのモード</label>
+            <<select id="node-input-targetPort_mode">
+                <option value="0">0 (OFF)</option>
+                <option value="1">1 (ON)</option>
+            </select>   
+        </div>
+        
     </div>
 
     <div id="WriteType-PWM">
