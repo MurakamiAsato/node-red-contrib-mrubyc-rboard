@@ -1,6 +1,6 @@
 module.exports = function(RED) {
     
-    function GPIO_Write2_Node(config) {
+    function GPIO_Read_Node(config) {
         RED.nodes.createNode(this,config);
         var node = this;
 
@@ -9,5 +9,5 @@ module.exports = function(RED) {
             
         });
     }
-    RED.nodes.registerType("GPIO-Write-2",GPIO_Write2_Node);
+    RED.nodes.registerType("GPIO-Read",GPIO_Read_Node);
 }

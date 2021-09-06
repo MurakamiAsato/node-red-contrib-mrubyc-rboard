@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('GPIO-Read-1', {
+    RED.nodes.registerType('GPIO-Read', {
         category: 'mruby_Rboad_Nodes',
         color: '#A9E2F3',
         defaults: {
@@ -10,11 +10,11 @@
             targetPort_ADC: {value: ""}
 
         },
-        inputs: 0,
+        inputs: 1,
         outputs: 1,
         icon: "file.png",
         label: function () {
-            return this.name||"GPIO-Read-1";
+            return this.name||"GPIO-Read";
         },
         
         oneditprepare: function(){
@@ -33,7 +33,7 @@
 </script>
 
 
-<script type="text/html" data-template-name="GPIO-Read-1">
+<script type="text/html" data-template-name="GPIO-Read">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> 名前</label>
         <input type="text" id="node-input-name" placeholder="名前">
@@ -85,6 +85,6 @@
 </script>
 
  
-<script type="text/x-red" data-help-name="GPIO-Read-1">
+<script type="text/x-red" data-help-name="GPIO-Read">
     <p>GPIOを制御するノードです</p>
 </script>

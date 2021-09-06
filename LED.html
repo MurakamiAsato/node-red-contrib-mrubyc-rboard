@@ -6,6 +6,7 @@
             name: { value: "" },
             HOWuesLED: {value: "using_onBoaedLED"},
             targetPort: {value: ""},
+            targetPort_mode: {value:"0"},
             onBoardLED: {value: "0"}
         },
         inputs: 1,
@@ -18,7 +19,7 @@
         oneditprepare: function(){
 
             $("#node-input-HOWuesLED").on("change",function() {
-                if (this.value === "using_LED_ON" || this.value === "using_LED_OFF") {
+                if (this.value === "using_LED") {
                     $("#LED-conected-Pin").show();
                     $("#LED-onBoard").hide();
                 } else if (this.value === "using_onBoaedLED") {
@@ -40,15 +41,22 @@
         <label for="node-input-HOWuesLED"><i class="icon-tag"></i>LEDノードの対象 </label>
         <select id="node-input-HOWuesLED">
             <option value="using_onBoaedLED">オンボードLED</option>
-            <option value="using_LED_ON">Pinと接続しているLEDの点灯</option>
-            <option value="using_LED_OFF">Pinと接続しているLEDの消灯</option>
+            <option value="using_LED">Pinと接続しているLED</option>
         </select>
     </div>
     
     <div id="LED-conected-Pin" class="form-row">
         <label for="node-input-targetPort"><i class="icon-tag"></i> Pin番号</label>
         <input type="text" id="node-input-targetPort"  placeholder="LEDと接続しているPin番号を入力">
+
+        <label for="node-input-targetPort_mode"><i class="icon-tag"></i> LEDのON/OFFモード</label>
+        <select id="node-input-targetPort_mode">
+            <option value="0">0 (OFF)</option>
+            <option value="1">1 (ON)</option>
+            <option value="2">入力に従ってONとOFFを切り替える (入力有:ON 入力無:OFF)</option>    
+        </select>        
     </div>
+    
 
     <div id="LED-onBoard" class="form-row">
         <label for="node-input-onBoardLED"><i class="icon-tag"></i>オンボードLED </label>
