@@ -7,7 +7,8 @@
       "GPIO":"GPIO.js",
       "GPIO-Read":"GPIO-Read.js",
       "GPIO-Write-1":"GPIO-Write-1.js",
-      "GPIO-Write-2":"GPIO-Write-2.js"
+      "GPIO-Write-2":"GPIO-Write-2.js",
+      "I2C":"I2C.js"
     }
   },
   "version": "1.0.0",
