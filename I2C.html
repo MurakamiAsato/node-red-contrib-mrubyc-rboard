@@ -69,6 +69,9 @@
                     }
                     var valueField = $('<input/>',{class:"node-input-rule-value",type:"text",style:"margin-left: 5px; width: 145px;",placeholder:"register adress"}).appendTo(row).typedInput({default:'str',types:['str']});
                     var byteField = $('<input/>',{class:"node-input-rule-byte",type:"text",style:"margin-left: 5px; width: 80px;",placeholder:"bytes"}).appendTo(row);
+                    var commandField = $('<input/>',{class:"node-input-rule-command",type:"text",style:"margin-left: 5px; width: 80px;",placeholder:"command"}).appendTo(row);
+                    var delayField = $('<input/>',{class:"node-input-rule-delay",type:"text",style:"margin-left: 5px; width: 80px;",placeholder:"delay(ms)"}).appendTo(row);
+                    
 
                     resizeRule(container);
                     selectField.change(function() {
@@ -76,14 +79,18 @@
                         
                         if (type === "W") {
                             byteField.hide();
+                            commandField.show();
                         } else {
                             byteField.show();
+                            commandField.hide();
                         }
                     });
                     
                     selectField.val(rule.t);
                     valueField.typedInput('value',rule.v);
                     byteField.val(rule.b);
+                    commandField.val(rule.c);
+                    delayField.val(rule.de);
 
                     selectField.change();
                     
@@ -121,6 +128,11 @@
                 if (type === "R") {
                     r.b = rule.find(".node-input-rule-byte").val();                    
                 }
+
+                if (type === "W") {
+                    r.c = rule.find(".node-input-rule-command").val();                    
+                }
+                r.de = rule.find(".node-input-rule-delay").val(); ;
 
                 node.rules.push(r);
             });

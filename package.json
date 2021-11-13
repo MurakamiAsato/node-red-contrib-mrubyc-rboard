@@ -2,13 +2,16 @@
   "name": "node-red-contrib-mrubyc-rboard",
   "node-red" : {
     "nodes": {
+      "Generator":"Generator.js",
+      "Constant":"Constant.js",
       "Button": "Button.js",
       "LED":"LED.js",
       "GPIO":"GPIO.js",
       "GPIO-Read":"GPIO-Read.js",
       "GPIO-Write-1":"GPIO-Write-1.js",
       "GPIO-Write-2":"GPIO-Write-2.js",
-      "I2C":"I2C.js"
+      "I2C":"I2C.js",
+      "function":"function.js"
     }
   },
   "version": "1.0.0",

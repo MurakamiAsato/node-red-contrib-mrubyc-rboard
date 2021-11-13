@@ -1,0 +1,28 @@
+<script type="text/javascript">
+    RED.nodes.registerType('Generator', {
+        category: 'mruby_Rboad_Nodes',
+        color: '#A9E2F3',
+        defaults: {
+            name: { value: "" },
+            repeat: {value: ""}
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "inject.svg",
+        label: function () {
+            return this.name||"Generator";
+        }
+    });
+</script>
+ 
+<script type="text/html" data-template-name="Generator">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> 名前</label>
+        <input type="text" id="node-input-name" placeholder="名前">
+    </div>
+</script>
+ 
+<script type="text/x-red" data-help-name="Generator">
+    <p>データの生成を行うノードです。「1」または「0」のデータ生成を行い、接続先のノードにデータを送信します。
+        これにより、データを受け取ったノードは機能をはじめ、様々な処理を行わせることができます。</p>
+</script>
